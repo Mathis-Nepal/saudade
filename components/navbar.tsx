@@ -1,11 +1,22 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ButtonArrow } from "./components";
 
 const Navbar = () => {
     const nav = useRef(null);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    const toggleDrawer = () => {
+        setIsDrawerOpen((prev) => !prev);
+    };
+
+    const closeDrawer = () => {
+        if (isDrawerOpen) {
+            setIsDrawerOpen(false);
+        }
+    };
 
     useEffect(() => {
         const tl = gsap.timeline({
@@ -22,84 +33,85 @@ const Navbar = () => {
 
         tl.fromTo(
             nav.current,
-            { 
+            {
                 css: {
                     border: "2px solid transparent",
                     backdropFilter: "none",
-                    backgroundColor: "rgba(255, 255, 255, 0)"
-                }
-            }, 
+                    backgroundColor: "rgba(255, 255, 255, 0)",
+                },
+            },
             {
                 css: {
                     border: "2px solid rgba(235, 235, 235, 0.4)",
                     backdropFilter: "blur(10px)",
-                    backgroundColor: "rgba(255, 255, 255, 0.3)"
-                }
+                    backgroundColor: "rgba(255, 255, 255, 0.3)",
+                },
             }
         );
     });
     return (
-        <div className="z-10 fixed w-full flex justify-center items-center top-0">
-            <nav
-                ref={nav}
-                className=" transition-colors navbar flex justify-between items-center border-2 border-transparent mt-[24px] m-auto max-md:mx-5 rounded-2xl font-melodrama p-2.5 md:max-w-[80vw]  "
-            >
-                <div className="navbar-start lg:w-32">
-                    <div className="drawer">
-                        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-                        <div className="drawer-content w-1 z-10">
-                            <label htmlFor="my-drawer" className="btn btn-primary btn-ghost lg:hidden">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-                                </svg>
-                            </label>
-                        </div>
-                        <div className="drawer-side z-50">
-                            <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-                            <ul className="menu p-4 w-1/2 min-h-full bg-base-200 text-base-content text-xl">
-                                <li>
-                                    <a className="p-4">COVER</a>
-                                </li>
-                                <li>
-                                    <a className="p-4">FEATURINGS</a>
-                                </li>
-                                <li>
-                                    <a className="p-4">VINYLE</a>
-                                </li>
-                            </ul>
-                        </div>
+        <>
+            <div className="z-50 fixed w-full flex justify-center items-center top-0">
+                <nav
+                    ref={nav}
+                    className=" transition-colors navbar flex justify-between items-center border-2 border-transparent mt-[24px] m-auto max-md:mx-5 rounded-2xl font-melodrama p-2.5 md:max-w-[80vw]  "
+                >
+                    <div className="navbar-start w-auto">
+                        <label onClick={toggleDrawer} className="btn btn-primary btn-ghost md:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </label>
+                        
+                        <Image className="max-md:hidden" src={"/logo.png"} alt={""} width={100} height={100}></Image>
                     </div>
-
-                    <Image src={"/logo.png"} alt={""} width={100} height={100}></Image>
-                </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal gap-5 px-1 text-xl">
-                        <li>
-                            <a>COVER</a>
-                        </li>
-                        <li>
-                            <a>FEATURINGS</a>
-                        </li>
-                        <li>
-                            <a>VINYLE</a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="navbar-end w-32">
-                    <a className="btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-auto transition-all duration-300 ease-in-out">
-                        <span className="basis-full text-center transition-all duration-300 ease-in-out group-hover:mr-4">écouter</span>
-                        <span className="flex items-center opacity-0 group-hover:opacity-100 absolute right-4 transition-opacity duration-300 ease-in-out">
-                            →
-                        </span>
+                    <div className="navbar-center  md:flex ">
+                        <ul className=" max-md:hidden menu menu-horizontal px-1 text-xl">
+                            <li>
+                                <a>COVER</a>
+                            </li>
+                            <li>
+                                <a>FEATURINGS</a>
+                            </li>
+                            <li>
+                                <a>VINYLE</a>
+                            </li>
+                        </ul>
+                        <Image className="md:hidden max-vsm:hidden" src={"/logo.png"} alt={""} width={100} height={100}></Image>
+                    </div>
+                    <div className="navbar-end w-auto">
+                        {/* <a className="btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-auto transition-all duration-300 ease-in-out">
+                            <span className="basis-full text-center transition-all duration-300 ease-in-out group-hover:mr-4">écouter</span>
+                            <span className="flex items-center opacity-0 group-hover:opacity-100 absolute right-4 transition-opacity duration-300 ease-in-out">
+                                →
+                            </span>
+                        </a> */}
+                        <ButtonArrow direction={"#"} text={"écouter"}></ButtonArrow>
+                    </div>
+                </nav>
+            </div>
+            <div className={`${isDrawerOpen ? "block" : "hidden"} fixed inset-0 z-50 bg-black bg-opacity-50`} onClick={closeDrawer}></div>
+            <ul
+                className="fixed z-[100] top-0 w-80 bg-base-200 h-full p-4 gap-5 text-xl font-melodrama menu overflow-y-auto transition-transform duration-500 ease-in-out"
+                style={{ transform: isDrawerOpen ? "translateX(0)" : "translateX(-100%)", transition: "transform 0.5s ease-in-out" }}
+            >
+                <li>
+                    <a className="p-4" href="#">
+                        COVER
                     </a>
-                </div>
-            </nav>
-        </div>
+                </li>
+                <li>
+                    <a className="p-4" href="#">
+                        FEATURINGS
+                    </a>
+                </li>
+                <li>
+                    <a className="p-4" href="#">
+                        VINYLE
+                    </a>
+                </li>
+            </ul>
+        </>
     );
 };
 export default Navbar;
-{
-    /* <span className=" opacity-0 group-hover:opacity-100 absolute right-[-5px] transition-all duration-300 ease-in-out transform group-hover:right-2">
-                            →
-                        </span> */
-}
