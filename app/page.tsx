@@ -1,9 +1,8 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { EmblaOptionsType } from "embla-carousel";
 import { Carousel, Footer, ButtonArrow } from "../components/components";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,8 +22,6 @@ export default function Home() {
         part2_h2: useRef(null),
         part3_h3: useRef(null),
         deezer: useRef(null),
-        // spotify: useRef(null),
-        // apple_music: useRef(null),
     };
     const cover = useRef(null);
     const imgCover = useRef(null);
@@ -69,52 +66,6 @@ export default function Home() {
             tl.kill();
         };
     });
-    const OPTIONS: EmblaOptionsType = {};
-    const SLIDE_COUNT = 4;
-    const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
-    // useEffect(() => {
-    //     const tl = gsap.timeline({
-    //         scrollTrigger: {
-    //             trigger: section1.current,
-    //             start: "top center", // Start when the top of part3_h3 is 100px past the center
-    //             end: "bottom top", // End when the bottom of part3_h3 is 100px past the center
-    //             scrub: 2,
-    //             // markers: true,
-    //             toggleActions: "restart pause reverse pause",
-    //         },
-    //         defaults: { ease: "power3.out" },
-    //     });
-
-    //     tl.add(gsap.fromTo(carouselSection.current, { top: 0 }, { top: -500 }));
-
-    //     return () => {
-    //         tl.kill();
-    //     };
-    // });
-    const images = [{ src: "/cover.png" }, { src: "/logo.png" }, { src: "/josman.png" }];
-
-    // useEffect(() => {
-    //   const handleScroll = () => {
-    //     // const sticky = stickyRef.current;
-    //     const stopPoint = carouselSection.current.getBoundingClientRect().top;
-
-    //     if (stopPoint <= section1.current.offsetTop + section1.current.offsetHeight) {
-    //         console.log('stopPoint', stopPoint);
-    //       section1.current.classList.remove('sticky', 'top-40');
-    //       section1.current.classList.add('relative');
-    //     } else {
-    //         console.log('stopPoint', stopPoint);
-    //         // section1.current.classList.add('sticky', 'top-40');
-    //         // section1.current.classList.remove('relative');
-    //     }
-    //   };
-
-    //   window.addEventListener('scroll', handleScroll);
-
-    //   return () => {
-    //     window.removeEventListener('scroll', handleScroll);
-    //   };
-    // }, []);
 
     return (
         <>
@@ -158,7 +109,7 @@ export default function Home() {
                     </div>
                 </div>
             </main>
-            <section ref={section1} className="sticky top-40 flex items-start justify-center w-full z-0 ">
+            <section id="cover" ref={section1} className="sticky top-40 flex items-start justify-center w-full z-0 ">
                 <Image
                     className="w-1/4 absolute top-0 left-1/2 -translate-x-2/4 -translate-y-2/4 z-10"
                     src={"/saudade_title.png"}
@@ -178,6 +129,7 @@ export default function Home() {
                 </div>
             </section>
             <section
+                id="featurings"
                 ref={carouselSection}
                 className={`relative flex items-center justify-center bg-secondary max-w-[100vw] overflow-hidden md:h-[100svh] max-md:h-[80svh] `}
             >
@@ -186,7 +138,7 @@ export default function Home() {
                 </div>
                 <Carousel></Carousel>
             </section>
-            <section className="relative bg-[#F5F5F5] opacity-100 z-1 w-full flex items-start justify-center  ">
+            <section id="vinyle" className="relative bg-[#F5F5F5] opacity-100 z-1 w-full flex items-start justify-center  ">
                 <Image
                     className="absolute max-md:-top-20 md:-top-28 md:w-72 -rotate-[125deg] "
                     alt=""

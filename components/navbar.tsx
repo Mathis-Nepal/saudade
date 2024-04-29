@@ -25,7 +25,7 @@ const Navbar = () => {
                 start: "top top",
                 end: "bottom top",
                 scrub: 1,
-                markers: true,
+                // markers: true,
                 toggleActions: "restart pause reverse pause",
             },
             defaults: { ease: "power3.out" },
@@ -63,29 +63,23 @@ const Navbar = () => {
                             </svg>
                         </label>
 
-                        <Image className="max-md:hidden" src={"./logo.png"} alt={""} width={100} height={100}></Image>
+                        <Image className="max-md:hidden" src={"/logo.png"} alt={""} width={100} height={100}></Image>
                     </div>
                     <div className="navbar-center  md:flex ">
                         <ul className=" max-md:hidden menu menu-horizontal px-1 text-xl">
                             <li>
-                                <a>COVER</a>
+                                <a href="#cover">COVER</a>
                             </li>
                             <li>
-                                <a>FEATURINGS</a>
+                                <a href="#featurings">FEATURINGS</a>
                             </li>
                             <li>
-                                <a>VINYLE</a>
+                                <a href="#vinyle">VINYLE</a>
                             </li>
                         </ul>
                         <Image className="md:hidden max-vsm:hidden" src={"/logo.png"} alt={""} width={100} height={100}></Image>
                     </div>
                     <div className="navbar-end w-auto">
-                        {/* <a className="btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-auto transition-all duration-300 ease-in-out">
-                            <span className="basis-full text-center transition-all duration-300 ease-in-out group-hover:mr-4">écouter</span>
-                            <span className="flex items-center opacity-0 group-hover:opacity-100 absolute right-4 transition-opacity duration-300 ease-in-out">
-                                →
-                            </span>
-                        </a> */}
                         <ButtonArrow direction={"#"} text={"écouter"}></ButtonArrow>
                     </div>
                 </nav>
