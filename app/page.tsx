@@ -91,7 +91,7 @@ export default function Home() {
     //         tl.kill();
     //     };
     // });
-    const images = [{ src: "./cover.png" }, { src: "./logo.png" }, { src: "./josman.png" }];
+    const images = [{ src: "/cover.png" }, { src: "/logo.png" }, { src: "/josman.png" }];
 
     // useEffect(() => {
     //   const handleScroll = () => {
@@ -122,14 +122,14 @@ export default function Home() {
                 <Image
                     className="absolute lg:w-64 max-lg:top-[16vh] max-lg:-right-[4.5rem] lg:-right-[6.25rem] lg:top-[20vh] "
                     alt=""
-                    src={"./snake.png"}
+                    src={"/snake.png"}
                     height={180}
                     width={200}
                 ></Image>
                 <Image
                     className="absolute lg:w-64 max-lg:bottom-[11vh] max-lg:-left-[4.5rem] lg:-left-[6.25rem] lg:bottom-[20vh] scale-x-[-1] scale-y-[-1]"
                     alt=""
-                    src={"./snake.png"}
+                    src={"/snake.png"}
                     height={180}
                     width={200}
                 ></Image>
@@ -152,16 +152,16 @@ export default function Home() {
                 </h1>
                 <div className="flex gap-7 mt-12 overflow-hidden">
                     <div ref={refs.deezer} className="opacity-0 flex gap-7">
-                        <Image className="logo-app-streaming object-contain" src={"./deezer.png"} alt={""} width={130} height={32}></Image>
-                        <Image className="logo-app-streaming object-contain" src={"./spotify.png"} alt={""} width={130} height={32}></Image>
-                        <Image className="logo-app-streaming object-contain" src={"./apple_music.png"} alt={""} width={130} height={32}></Image>
+                        <Image className="logo-app-streaming object-contain" src={"/deezer.png"} alt={""} width={130} height={32}></Image>
+                        <Image className="logo-app-streaming object-contain" src={"/spotify.png"} alt={""} width={130} height={32}></Image>
+                        <Image className="logo-app-streaming object-contain" src={"/apple_music.png"} alt={""} width={130} height={32}></Image>
                     </div>
                 </div>
             </main>
             <section ref={section1} className="sticky top-40 flex items-start justify-center w-full z-0 ">
                 <Image
                     className="w-1/4 absolute top-0 left-1/2 -translate-x-2/4 -translate-y-2/4 z-10"
-                    src={"./saudade_title.png"}
+                    src={"/saudade_title.png"}
                     alt=""
                     width={726}
                     height={102}
@@ -169,7 +169,7 @@ export default function Home() {
                 <div ref={cover} className="relative max-w-[80vw]  mb-20 overflow-hidden h-full rounded-lg">
                     <Image
                         ref={imgCover}
-                        src={"./cover.png"}
+                        src={"/cover.png"}
                         style={{ transform: "translateY(-85%) scale(1.5)" }}
                         alt={""}
                         width={1920}
@@ -190,12 +190,12 @@ export default function Home() {
                 <Image
                     className="absolute max-md:-top-20 md:-top-28 md:w-72 -rotate-[125deg] "
                     alt=""
-                    src={"./snake.png"}
+                    src={"/snake.png"}
                     height={180}
                     width={200}
                 ></Image>
                 <div className="max-w-full max-md:p-4 md:p-10 bg-primary flex flex-col items-center justify-center md:m-24  max-md:m-16 md:mb-48  max-md:mb-32">
-                    <Image className="w-[100%]" alt={""} src={"./vinyle.png"} width={1920} height={1080}></Image>
+                    <Image className="w-[100%]" alt={""} src={"/vinyle.png"} width={1920} height={1080}></Image>
                     {/* <a className="font-melodrama btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-[15.5rem] transition-all duration-300 ease-in-out">
                         <span className="basis-full text-center transition-all duration-300 ease-in-out group-hover:mr-4">acheter le vinyle</span>
                         <span className="flex items-center opacity-0 group-hover:opacity-100 absolute right-4 transition-opacity duration-300 ease-in-out">
@@ -219,9 +219,9 @@ export default function Home() {
                     <div className="md:w-56 flex-col bg-secondary/50 justify-center items-center block rounded-xl md:p-5 max-md:pt-4 backdrop-blur-xl border-2 border-[#5E5E5E]/30">
                         <p className="text-center font-melodrama text-primary ">Ecouter plus sur</p>
                         <div className="flex md:flex-col justify-around w-full flex-1 p-2 ">
-                            <LogoWithName name={"Spotify"} path={"./spotify.svg"} link={"undefined"}></LogoWithName>
-                            <LogoWithName name={"Deezer"} path={"./deezer.svg"} link={"undefined"}></LogoWithName>
-                            <LogoWithName name={"Apple Music"} path={"./apple_music.svg"} link={"undefined"}></LogoWithName>
+                            <LogoWithName name={"Spotify"} path={"/spotify.svg"} link={"undefined"}></LogoWithName>
+                            <LogoWithName name={"Deezer"} path={"/deezer.svg"} link={"undefined"}></LogoWithName>
+                            <LogoWithName name={"Apple Music"} path={"/apple_music.svg"} link={"undefined"}></LogoWithName>
                         </div>
                     </div>
                 </div>
