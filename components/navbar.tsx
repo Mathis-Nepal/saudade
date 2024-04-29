@@ -62,8 +62,8 @@ const Navbar = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </label>
-                        
-                        <Image className="max-md:hidden" src={"/logo.png"} alt={""} width={100} height={100}></Image>
+
+                        <Image className="max-md:hidden" src={"./logo.png"} alt={""} width={100} height={100}></Image>
                     </div>
                     <div className="navbar-center  md:flex ">
                         <ul className=" max-md:hidden menu menu-horizontal px-1 text-xl">
@@ -77,7 +77,7 @@ const Navbar = () => {
                                 <a>VINYLE</a>
                             </li>
                         </ul>
-                        <Image className="md:hidden max-vsm:hidden" src={"/logo.png"} alt={""} width={100} height={100}></Image>
+                        <Image className="md:hidden max-vsm:hidden" src={"./logo.png"} alt={""} width={100} height={100}></Image>
                     </div>
                     <div className="navbar-end w-auto">
                         {/* <a className="btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-auto transition-all duration-300 ease-in-out">

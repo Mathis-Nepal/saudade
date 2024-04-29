@@ -20,7 +20,7 @@ const Carousel = () => {
         });
     };
 
-    const images = ["/tiakola.png", "/josman.png", "/tiakola.png", "/isha.png", "/josman.png"];
+    const images = ["./tiakola.png", "./josman.png", "./tiakola.png", "./isha.png", "./josman.png"];
 
     const positions = ["center", "left1", "left", "right", "right1"];
 
@@ -48,14 +48,14 @@ const Carousel = () => {
                     className="aspect-square text-white  border-4 rounded-full grid place-items-center -scale-x-100 after:bg-slate-600 after:w-full after:h-full after:absolute after:translate-y-full hover:after:translate-y-0 after:transition-all after:duration-300 after:-z-1 overflow-hidden "
                     onClick={handleBack}
                 >
-                    <img className="relative z-10" src="/arrow.svg" alt="" />
+                    <img className="relative z-10" src="./arrow.svg" alt="" />
                 </button>
                 <button
                     style={{ width: "clamp(4rem,9vw,5rem)" }}
                     className="aspect-square text-white border-4 rounded-full grid place-items-center -scale-x-100 after:bg-slate-600 after:w-full after:h-full after:absolute after:translate-y-full hover:after:translate-y-0 after:transition-all after:duration-300 after:-z-1 overflow-hidden "
                     onClick={handleNext}
                 >
-                    <img className="relative z-10 -scale-x-100" src="/arrow.svg" alt="" />
+                    <img className="relative z-10 -scale-x-100" src="./arrow.svg" alt="" />
                 </button>
             </div>
         </>
