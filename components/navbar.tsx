@@ -63,7 +63,7 @@ const Navbar = () => {
                             </svg>
                         </label>
 
-                        <Image className="max-md:hidden" src={"/logo.png"} alt={""} width={100} height={100}></Image>
+                        <Image className="max-md:hidden" src={"/assets/logo.png"} alt={""} width={100} height={100}></Image>
                     </div>
                     <div className="navbar-center  md:flex ">
                         <ul className=" max-md:hidden menu menu-horizontal px-1 text-xl">
@@ -77,7 +77,7 @@ const Navbar = () => {
                                 <a href="#vinyle">VINYLE</a>
                             </li>
                         </ul>
-                        <Image className="md:hidden max-vsm:hidden" src={"/logo.png"} alt={""} width={100} height={100}></Image>
+                        <Image className="md:hidden max-vsm:hidden" src={"/assets/logo.png"} alt={""} width={100} height={100}></Image>
                     </div>
                     <div className="navbar-end w-auto">
                         <ButtonArrow direction={"#"} text={"écouter"}></ButtonArrow>
