@@ -196,12 +196,6 @@ export default function Home() {
                 ></Image>
                 <div className="max-w-full max-md:p-4 md:p-10 bg-primary flex flex-col items-center justify-center md:m-24  max-md:m-16 md:mb-48  max-md:mb-32">
                     <Image className="w-[100%]" alt={""} src={"/vinyle.png"} width={1920} height={1080}></Image>
-                    {/* <a className="font-melodrama btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-[15.5rem] transition-all duration-300 ease-in-out">
-                        <span className="basis-full text-center transition-all duration-300 ease-in-out group-hover:mr-4">acheter le vinyle</span>
-                        <span className="flex items-center opacity-0 group-hover:opacity-100 absolute right-4 transition-opacity duration-300 ease-in-out">
-                            →
-                        </span>
-                    </a> */}
                     <ButtonArrow direction={"#"} text={"acheter le vinyle"}></ButtonArrow>
                 </div>
             </section>

@@ -24,23 +24,8 @@ body {
     box-sizing: border-box;
     width: 100vw;
 }
-/* <a className="font-melodrama btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-[15.5rem] transition-all duration-300 ease-in-out">
-                        <span className="basis-full text-center transition-all duration-300 ease-in-out group-hover:mr-4">acheter le vinyle</span>
-                        <span className="flex items-center opacity-0 group-hover:opacity-100 absolute right-4 transition-opacity duration-300 ease-in-out">
-                            →
-                        </span>
-                    </a> */
 
 @layer base {
-    /* .button-arrow{
-       @apply font-melodrama btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-[15.5rem] transition-all duration-300 ease-in-out;
-    }
-    .button-arrow span:first-child{
-        @apply basis-full text-center transition-all duration-300 ease-in-out group-hover:mr-4;
-    }
-    .button-arrow span:last-child{
-        @apply flex items-center opacity-0 group-hover:opacity-100 absolute right-4 transition-opacity duration-300 ease-in-out;
-    } */
     @font-face {
         font-family: "Melodrama";
         font-weight: 700;
