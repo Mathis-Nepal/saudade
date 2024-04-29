@@ -19,6 +19,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <style>
+                {`
+          :root {
+            --asset-prefix: ${process.env.NEXT_PUBLIC_ASSET_PREFIX};
+          }
+        `}
+            </style>
             <body className={inter.className}>
                 {/* <Suspense fallback={<Loading/>}> */}
 

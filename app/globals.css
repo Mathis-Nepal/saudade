@@ -42,7 +42,7 @@ html {
         font-weight: 700;
         letter-spacing: 2%;
         line-height: 27px;
-        src: url("/fonts/Melodrama-Variable.woff2") format("woff2");
+        src: url( "/saudade/fonts/Melodrama-Variable.woff2") format("woff2");
     }
     .logo-app-streaming {
         width: clamp(5.5rem, 20vw, 9rem);
@@ -56,7 +56,7 @@ html {
         line-height: 105px;
         letter-spacing: 2%;
         font-weight: 400;
-        src: url("/fonts/GarciaMarquez.otf") format("openType");
+        src: url("/saudade/fonts/GarciaMarquez.otf") format("openType");
     }
 
     .scale-125 {
