@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { LinkCustom } from "./components";
 
 const Carousel = () => {
     const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
@@ -32,7 +33,7 @@ const Carousel = () => {
                 {images.map((image, index) => (
                     <motion.img
                         key={index}
-                        src={image}
+                        src={LinkCustom({ src: image })}
                         alt={image}
                         className={`rounded-[12px] //max-md:w-[55%] //md:w-[40%] //md:max-w-[28rem]  object-cover absolute border-4 border-white`}
                         initial="center"
@@ -48,14 +49,14 @@ const Carousel = () => {
                     className="aspect-square text-white  border-4 rounded-full grid place-items-center -scale-x-100 after:bg-slate-600 after:w-full after:h-full after:absolute after:translate-y-full hover:after:translate-y-0 after:transition-all after:duration-300 after:-z-1 overflow-hidden "
                     onClick={handleBack}
                 >
-                    <img className="relative z-10" src="/assets/arrow.svg" alt="" />
+                    <img className="relative z-10" src={LinkCustom({ src: "/assets/arrow.svg" })} alt="" />
                 </button>
                 <button
                     style={{ width: "clamp(4rem,9vw,5rem)" }}
                     className="aspect-square text-white border-4 rounded-full grid place-items-center -scale-x-100 after:bg-slate-600 after:w-full after:h-full after:absolute after:translate-y-full hover:after:translate-y-0 after:transition-all after:duration-300 after:-z-1 overflow-hidden "
                     onClick={handleNext}
                 >
-                    <img className="relative z-10 -scale-x-100" src="/assets/arrow.svg" alt="" />
+                    <img className="relative z-10 -scale-x-100" src={LinkCustom({ src: "/assets/arrow.svg" })} alt="" />
                 </button>
             </div>
         </>
