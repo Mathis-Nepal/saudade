@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Carousel, Footer, ButtonArrow } from "../components/components";
+import { Carousel, Footer, ButtonArrow, LinkCustom } from "../components/components";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,7 +73,7 @@ export default function Home() {
                 <Image
                     className="absolute lg:w-64 max-lg:top-[16vh] max-lg:-right-[4.5rem] lg:-right-[6.25rem] lg:top-[20vh] "
                     alt=""
-                    src={"/assets/snake.png"}
+                    src={LinkCustom({ src: "/assets/snake.png" })}
                     height={180}
                     width={200}
                 ></Image>
