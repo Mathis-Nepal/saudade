@@ -3,17 +3,16 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Carousel from "../components/carousel/carousel";
-import EmblaCarousel from "../components/carousel/EmblaCarousel";
 import { EmblaOptionsType } from "embla-carousel";
+import {Carousel, Footer, ButtonArrow} from "../components/components";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const LogoWithName = ({ name, path, link }) => {
     return (
-        <a href={link} className="flex flex-col items-center justify-center">
-            <Image src={path} alt="" width={50} height={50}></Image>
-            <p className={"text-primary"}>{name}</p>
+        <a href={link} className=" flex flex-1 flex-col items-center rounded-lg mt-5 justify-center hover:bg-green-600 duration-300">
+            <Image className="max-sm:w-10" src={path} alt="" width={50} height={50}></Image>
+            <p className={"text-primary max-sm:text-sm max-sm:text-ellipsis max-sm:whitespace-nowrap"}>{name}</p>
         </a>
     );
 };
@@ -93,6 +92,15 @@ export default function Home() {
     //     };
     // });
     const images = [{ src: "/cover.png" }, { src: "/logo.png" }, { src: "/josman.png" }];
+    const test = [
+        "/josman.png",
+        "/josman.png",
+        "/josman.png",
+        "/josman.png",
+        "/josman.png",
+        "/josman.png",
+        // Ajoute d'autres URLs d'images si nécessaire
+    ];
 
     // useEffect(() => {
     //   const handleScroll = () => {
@@ -121,14 +129,14 @@ export default function Home() {
         <>
             <main ref={main} className="relative h-[95svh] flex items-center justify-center flex-col pt-[5svh] overflow-hidden">
                 <Image
-                    className="absolute lg:w-64 max-lg:top-[18vh] max-lg:-right-[4.5rem] lg:-right-[6.25rem] lg:top-[20vh] "
+                    className="absolute lg:w-64 max-lg:top-[16vh] max-lg:-right-[4.5rem] lg:-right-[6.25rem] lg:top-[20vh] "
                     alt=""
                     src={"/snake.png"}
                     height={180}
                     width={200}
                 ></Image>
                 <Image
-                    className="absolute lg:w-64 max-lg:bottom-[13vh] max-lg:-left-[4.5rem] lg:-left-[6.25rem] lg:bottom-[20vh] scale-x-[-1] scale-y-[-1]"
+                    className="absolute lg:w-64 max-lg:bottom-[11vh] max-lg:-left-[4.5rem] lg:-left-[6.25rem] lg:bottom-[20vh] scale-x-[-1] scale-y-[-1]"
                     alt=""
                     src={"/snake.png"}
                     height={180}
@@ -178,43 +186,56 @@ export default function Home() {
                     ></Image>
                 </div>
             </section>
-            <section ref={carouselSection} className={` bg-secondary relative h-[100svh] py-36 flex justify-center flex-col items-start`}>
-                <div className="w-[80vw]">
+            <section
+                ref={carouselSection}
+                className={`relative flex items-center justify-center bg-secondary max-w-[100vw] overflow-hidden md:h-[100svh] max-md:h-[80svh] `}
+            >
+                <div className="z-10 absolute m-auto left-[10vw] top-[5svh]">
                     <h2 className="text-primary text-4xl font-garcia">FEATURINGS</h2>
                 </div>
-                <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+                <Carousel></Carousel>
             </section>
-            <section className="relative bg-[#F5F5F5] opacity-100 z-1 w-full h-[100svh] grid place-items-center">
-                <div className="p-10 bg-primary max-w-[70vw] flex flex-col items-center justify-center">
-                    <Image alt={""} src={"/vinyle.png"} width={1920} height={1080}></Image>
-                    <a className="font-melodrama btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-[15.5rem] transition-all duration-300 ease-in-out">
+            <section className="relative bg-[#F5F5F5] opacity-100 z-1 w-full flex items-start justify-center  ">
+                <Image
+                    className="absolute max-md:-top-20 md:-top-28 md:w-72 -rotate-[125deg] "
+                    alt=""
+                    src={"/snake.png"}
+                    height={180}
+                    width={200}
+                ></Image>
+                <div className="max-w-full max-md:p-4 md:p-10 bg-primary flex flex-col items-center justify-center md:m-24  max-md:m-16 md:mb-48  max-md:mb-32">
+                    <Image className="w-[100%]" alt={""} src={"/vinyle.png"} width={1920} height={1080}></Image>
+                    {/* <a className="font-melodrama btn btn-secondary rounded-[80px] h-auto py-4 px-8 text-xl group relative flex justify-center items-center w-[15.5rem] transition-all duration-300 ease-in-out">
                         <span className="basis-full text-center transition-all duration-300 ease-in-out group-hover:mr-4">acheter le vinyle</span>
                         <span className="flex items-center opacity-0 group-hover:opacity-100 absolute right-4 transition-opacity duration-300 ease-in-out">
                             →
                         </span>
-                    </a>
+                    </a> */}
+                    <ButtonArrow direction={"#"} text={"acheter le vinyle"}></ButtonArrow>
                 </div>
             </section>
-            <section className="relative z-10 h-[100svh] bg-secondary grid place-items-center">
-                <div className="absolute -top-16 w-[80vw] h-full flex gap-5">
-                    {/* <div className="h-full"> */}
-                        <iframe
-                            style={{ borderRadius: "12px" }}
-                            src="https://open.spotify.com/embed/album/5ORwfRIZBQiJ1dQ2cQDIFO?utm_source=generator&theme=0"
-                            width={"100%"}
-                            height="100%"
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                        ></iframe>
-                    {/* </div> */}
-                    <div className="w-56 flex flex-col bg-secondary/50 items-center justify-around max-h-[24rem] rounded-xl p-5 backdrop-blur-xl border-2 border-[#5E5E5E]/30">
-                        <p className="font-melodrama text-primary">Ecouter plus sur</p>
-                        <LogoWithName name={"Deeze"} path={"/deezer_white.png"} link={"undefined"}></LogoWithName>
-                        <LogoWithName name={"Spotify"} path={"/spotify_white.png"} link={"undefined"}></LogoWithName>
-                        <LogoWithName name={"Apple Music"} path={"/apple_music_white.png"} link={"undefined"}></LogoWithName>
+            <section className="relative z-10  bg-secondary grid place-items-center">
+                <div className="relative max-md:flex-col -top-24 -mb-24 w-[80vw] flex gap-5 md:items-start">
+                    <iframe
+                        style={{ borderRadius: "12px" }}
+                        className="h-[40rem]"
+                        src="https://open.spotify.com/embed/album/5ORwfRIZBQiJ1dQ2cQDIFO?utm_source=generator&theme=0"
+                        width={"100%"}
+                        height="100%"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                    ></iframe>
+                    <div className="md:w-56 flex-col bg-secondary/50 justify-center items-center block rounded-xl md:p-5 max-md:pt-4 backdrop-blur-xl border-2 border-[#5E5E5E]/30">
+                        <p className="text-center font-melodrama text-primary ">Ecouter plus sur</p>
+                        <div className="flex md:flex-col justify-around w-full flex-1 p-2 ">
+                            <LogoWithName name={"Spotify"} path={"/spotify.svg"} link={"undefined"}></LogoWithName>
+                            <LogoWithName name={"Deezer"} path={"/deezer.svg"} link={"undefined"}></LogoWithName>
+                            <LogoWithName name={"Apple Music"} path={"/apple_music.svg"} link={"undefined"}></LogoWithName>
+                        </div>
                     </div>
                 </div>
             </section>
+            <Footer></Footer>
         </>
     );
 }

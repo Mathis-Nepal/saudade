@@ -1,14 +1,26 @@
 .embla {
     /* max-width: 48rem; */
     margin: auto;
-    --slide-height: 25rem;
-    --slide-spacing: 0rem;
-    --slide-size: 38%;
+    /* --slide-height: 25rem; */
+    --slide-spacing: 1rem;
+    --slide-size: 70%;
     --text-high-contrast-rgb-value: white;
-    --detail-medium-contrast: #f0f0f0;
-    --detail-high-contrast: #d0d0d0;
+    --detail-medium-contrast: #d0d0d0;
+    --detail-high-contrast: #f0f0f0;
 }
+@media screen and (min-width: 568px) {
+    .embla {
+        --slide-size: 38%;
+    }
+}
+@media screen and (min-width: 1920px) {
+    .embla {
+        --slide-size: 100%;
+    }
+}
+
 .embla__viewport {
+    max-width: 100vw;
     overflow: hidden;
 }
 .embla__container {
@@ -22,12 +34,15 @@
 .embla__slide.is-snapped {
     transform: scale(1);
     height: 100%;
+    /* width: var(--slide-size - 10px); */
+
 }
 .embla__slide {
-    transform: scale(0.9);
-    height: 80%;
+    /* transform: scale(0.9); */
+    /* height: 80%; */
     transition: transform 0.3s ease-in-out;
-    flex: 0 0 var(--slide-size);
+    width: 50vw;
+    /* flex: 0 0 var(--slide-size); */
     min-width: 0;
     padding-left: var(--slide-spacing);
 }
@@ -36,19 +51,24 @@
     border: 8px solid white;
     border-radius: 0.8rem;
     display: block;
-    height: var(--slide-height);
+    height: 100%;
     width: 100%;
     object-fit: cover;
 }
+/* .embla__slide:not(.is-snapped) {
+    width: 2rem;
+} */
 .embla__slide:not(.is-snapped) .embla__slide__img {
-    height: 22rem;
+    height: 90%;
 }
 .embla__controls {
     display: flex;
     /* grid-template-columns: auto 1fr; */
     justify-content: flex-end;
     gap: 1.2rem;
-    margin-top: 1.8rem;
+    padding-top: 1.8rem;
+    padding-right: 10vw;
+    padding-bottom: 4rem;
 }
 .embla__buttons {
     display: grid;
@@ -57,29 +77,44 @@
     align-items: center;
 }
 .embla__button {
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
     -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
     -webkit-appearance: none;
     appearance: none;
-    background-color: transparent;
     touch-action: manipulation;
-    display: inline-flex;
     text-decoration: none;
     cursor: pointer;
-    border: 0;
+    border: 3px solid var(--detail-medium-contrast);
     padding: 0;
     margin: 0;
-    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
     width: 3.6rem;
     height: 3.6rem;
-    z-index: 1;
     border-radius: 50%;
-    color: var(--text-body);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.embla__button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%; /* Positionne initialement le bord inférieur du pseudo-élément au bas du parent */
+    left: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: top 0.5s;
+}
+.embla__button:hover:after {
+    top: 0;
+}
 .embla__button:disabled {
-    color: var(--detail-high-contrast);
+    color: rgba(255, 255, 255, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.4);
 }
 .embla__button__svg {
     width: 35%;
