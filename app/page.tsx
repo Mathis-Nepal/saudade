@@ -187,7 +187,7 @@ export default function Home() {
                             <LogoWithName name={"Deezer"} path={LinkCustom({ src: "/assets/deezer.svg" })} link={"undefined"}></LogoWithName>
                             <LogoWithName
                                 name={"Apple Music"}
-                                path={LinkCustom({ src: "/assets/apple_music.png" })}
+                                path={LinkCustom({ src: "/assets/apple_music.svg" })}
                                 link={"undefined"}
                             ></LogoWithName>
                         </div>
