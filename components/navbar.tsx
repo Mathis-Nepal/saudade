@@ -54,7 +54,7 @@ const Navbar = () => {
             <div className="z-50 fixed w-full flex justify-center items-center top-0">
                 <nav
                     ref={nav}
-                    className=" transition-colors navbar flex justify-between items-center border-2 border-transparent mt-[24px] m-auto max-md:mx-5 rounded-2xl font-melodrama p-2.5 md:max-w-[80vw]  "
+                    className=" transition-colors navbar flex justify-between items-center border-2 border-transparent mt-[24px] m-auto  rounded-2xl font-melodrama p-2.5 md:max-w-[80vw] max-md:max-w-[90vw]  "
                 >
                     <div className="navbar-start w-auto">
                         <label onClick={toggleDrawer} className="btn btn-primary btn-ghost md:hidden">
