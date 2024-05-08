@@ -65,12 +65,12 @@ const Carousel = () => {
             >
                 {images.map((image, index) => {
                     console.log(image.name);
-                    const { scrollYProgress } = useScroll({
-                        target: image.ref,
-                        offset: ["start end", "0.5 1"],
-                    });
-                    const y = useTransform(scrollYProgress, [0, 1], [500 * (index + 1), 0]);
-                    const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+                    // const { scrollYProgress } = useScroll({
+                    //     target: image.ref,
+                    //     offset: ["start end", "0.5 1"],
+                    // });
+                    // const y = useTransform(scrollYProgress, [0, 1], [500 * (index + 1), 0]);
+                    // const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
                     return (
                         <motion.div
