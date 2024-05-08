@@ -201,7 +201,7 @@ function useResponsiveVariants() {
         },
         mobile: {
             left: {
-                left: "-60vw",
+                left: "-60svw",
                 width: secondElementWidth,
                 height: `${secondElementHeight}vw`,
                 zIndex: 3,
@@ -209,7 +209,7 @@ function useResponsiveVariants() {
                 filter: "grayscale(100%) brightness(0.7)",
             },
             left1: {
-                left: "-45vw",
+                left: "-45svw",
                 width: secondElementWidth,
                 height: `${secondElementHeight}vw`,
                 zIndex: 4,
@@ -217,7 +217,7 @@ function useResponsiveVariants() {
                 filter: "grayscale(100%) brightness(0.7)",
             },
             center: {
-                left: "4vw",
+                left: "4svw",
                 width: principalElementWidth,
                 height: `${princpalElementHeight}vw`,
                 zIndex: 5,
@@ -225,7 +225,7 @@ function useResponsiveVariants() {
                 filter: "grayscale(0%) brightness(1)",
             },
             right1: {
-                left: "70vw",
+                left: "70svw",
                 width: secondElementWidth,
                 height: `${secondElementHeight}vw`,
                 zIndex: 4,
@@ -233,7 +233,7 @@ function useResponsiveVariants() {
                 filter: "grayscale(100%) brightness(0.7)",
             },
             right: {
-                left: "100vw",
+                left: "100svw",
                 width: secondElementWidth,
                 height: `${secondElementHeight}vw`,
                 zIndex: 3,

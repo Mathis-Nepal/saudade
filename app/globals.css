@@ -22,11 +22,15 @@
 }
 body {
     box-sizing: border-box;
-    width: 100vw;
-    /* overflow-x: hidden; */
+    max-width: 100svw;
+    width: 100svw;
+    overflow-x: hidden;
 }
 html {
     scroll-behavior: smooth;
+    max-width: 100svw;
+    width: 100svw;
+     /* overflow-x: hidden; */
 }
 /* [id^="cover"]::before {
     content: "";

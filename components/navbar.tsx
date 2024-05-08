@@ -1,8 +1,8 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
 import { ButtonArrow, LinkCustom } from "./components";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Navbar = () => {
     const nav = useRef(null);
@@ -18,43 +18,24 @@ const Navbar = () => {
         }
     };
 
-    useEffect(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: nav.current,
-                start: "top top",
-                end: "bottom top",
-                scrub: 1,
-                // markers: true,
-                toggleActions: "restart pause reverse pause",
-            },
-            defaults: { ease: "power3.out" },
-        });
-
-        tl.fromTo(
-            nav.current,
-            {
-                css: {
-                    border: "2px solid transparent",
-                    backdropFilter: "none",
-                    backgroundColor: "rgba(255, 255, 255, 0)",
-                },
-            },
-            {
-                css: {
-                    border: "2px solid rgba(235, 235, 235, 0.4)",
-                    backdropFilter: "blur(10px)",
-                    backgroundColor: "rgba(255, 255, 255, 0.3)",
-                },
-            }
-        );
+    const { scrollY } = useScroll({
+        target: nav,
+        offset: ["start end", "0.8 1"],
     });
+    const border = useTransform(scrollY, [0, 1], ["2px solid transparent", "2px solid rgba(235, 235, 235, 0.4)"]);
+    const filter = useTransform(scrollY, [0, 1], ["blur(0px)", "blur(5px)"]);
+    const background = useTransform(scrollY, [0, 1], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.3)"]);
     return (
         <>
             <div className="z-50 fixed w-full flex justify-center items-center top-0">
-                <nav
+                <motion.nav
+                    style={{
+                        border: border,
+                        backdropFilter: filter,
+                        backgroundColor: background,
+                    }}
                     ref={nav}
-                    className=" transition-colors navbar flex justify-between items-center border-2 border-transparent mt-[24px] m-auto  rounded-2xl font-melodrama p-2.5 md:max-w-[80vw] max-md:max-w-[90vw]  "
+                    className=" transition-colors navbar flex justify-between items-center mt-[24px] m-auto  rounded-2xl font-melodrama p-2.5 md:max-w-[80vw] max-md:max-w-[90vw]  "
                 >
                     <div className="navbar-start w-auto">
                         <label onClick={toggleDrawer} className="btn btn-primary btn-ghost md:hidden">
@@ -88,7 +69,7 @@ const Navbar = () => {
                     <div className="navbar-end w-auto">
                         <ButtonArrow direction={"#"} text={"écouter"}></ButtonArrow>
                     </div>
-                </nav>
+                </motion.nav>
             </div>
             <div className={`${isDrawerOpen ? "block" : "hidden"} fixed inset-0 z-50 bg-black bg-opacity-50`} onClick={closeDrawer}></div>
             <ul
