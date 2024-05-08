@@ -41,46 +41,18 @@ const Carousel = () => {
 
     const container = useRef(null);
 
-    // useEffect(() => {
-    //     const tl = gsap.timeline({
-    //         scrollTrigger: {
-    //             trigger: container.current,
-    //             start: "center bottom", // Start when the top of part3_h3 is 100px past the center
-    //             end: "center bottom", // End when the bottom of part3_h3 is 100px past the center
-    //             scrub: 1,
-    //             markers: true,
-    //             toggleActions: "reverse none none none",
-    //             // once: true,
-    //         },
-    //         defaults: { ease: "power1.inOut" },
-    //     });
-    //     for (let i = 0; i < images.length; i++) {
-    //         const transform = i === 1 ? "translateY(0)" : "translateY(2.4vw)";
-    //         tl.add(gsap.fromTo(images[i].ref.current, { transform: "translateY(50vh)" }, { transform: transform }));
-    //     }
-
-    //     return () => {
-    //         tl.kill();
-    //     };
-    // });
-
-    // const { scrollYProgress } = useScroll({
-    //     target: container,
-    //     offset: ["start end", "0.8 1"],
-    // });
-
     return (
         <>
-            <div className="flex gap-3 absolute right-[5vw] sm:top-[13rem] max-sm:top-[8.5rem] //md:right-[8vw] //md:top-[10svh] //max-md:right-[10vw] //max-md:bottom-[3svh] z-10 //absolute">
+            <div className="flex gap-3 absolute right-[5vw] sm:top-[15rem] max-sm:top-[4rem] z-10 ">
                 <button
-                    style={{ width: "clamp(4rem,9vw,4.5rem)" }}
+                    style={{ width: "clamp(3.5rem,9vw,4.5rem)" }}
                     className="aspect-square text-white  border-4 rounded-full grid place-items-center -scale-x-100 after:bg-slate-600 after:w-full after:h-full after:absolute after:translate-y-full hover:after:translate-y-0 after:transition-all after:duration-300 after:-z-1 overflow-hidden "
                     onClick={handleBack}
                 >
                     <img className="relative z-10" src={LinkCustom({ src: "/assets/arrow.svg" })} alt="" />
                 </button>
                 <button
-                    style={{ width: "clamp(4rem,9vw,4.5rem)" }}
+                    style={{ width: "clamp(3.5rem,9vw,4.5rem)" }}
                     className="aspect-square text-white border-4 rounded-full grid place-items-center -scale-x-100 after:bg-slate-600 after:w-full after:h-full after:absolute after:translate-y-full hover:after:translate-y-0 after:transition-all after:duration-300 after:-z-1 overflow-hidden "
                     onClick={handleNext}
                 >
@@ -89,21 +61,20 @@ const Carousel = () => {
             </div>
             <motion.div
                 ref={container}
-                className={` //sm:mt-32 max-md:h-[65vw] md:h-[47vw] mb-[15vh] relative left-0 right-0 bottom-0 w-full flex items-center flex-col-reverse flex-1 justify-center max-w-[1920px]`}
+                className={` //sm:mt-32 max-sm:h-[65vw] //md:mb-[-4.5vw] sm:h-[47vw] mb-[15vh] relative left-0 right-0 bottom-0 w-full flex items-center flex-col-reverse flex-1 justify-center max-w-[1920px]`}
             >
                 {images.map((image, index) => {
                     console.log(image.name);
                     const { scrollYProgress } = useScroll({
                         target: image.ref,
-                        offset: ["start end", "1 1"],
+                        offset: ["start end", "0.5 1"],
                     });
-                    const multiplier = 0.2 * index;
-                    const sclae = useTransform(scrollYProgress, [0, 1], [500 * (index + 1), 0]);
+                    const y = useTransform(scrollYProgress, [0, 1], [500 * (index + 1), 0]);
                     const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
                     return (
                         <motion.div
-                            style={{ translateY: sclae, opacity: opacity }}
+                            // style={{ translateY: y, opacity: opacity }}
                             initial="center"
                             ref={image.ref}
                             key={index}
@@ -179,7 +150,7 @@ function useResponsiveVariants() {
                 width: principalElementWidth,
                 height: `${princpalElementHeight}vw`,
                 zIndex: 5,
-                y: "-3.9vw",
+                y: "-4.5vw",
                 filter: "grayscale(0%) brightness(1)",
             },
             right1: {
@@ -221,7 +192,7 @@ function useResponsiveVariants() {
                 width: principalElementWidth,
                 height: `${princpalElementHeight}vw`,
                 zIndex: 5,
-                y: "-3.9vw",
+                y: "-6.4vw",
                 filter: "grayscale(0%) brightness(1)",
             },
             right1: {

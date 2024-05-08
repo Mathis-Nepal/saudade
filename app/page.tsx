@@ -158,8 +158,8 @@ export default function Home() {
                 ref={carouselSection}
                 className={`relative //flex items-center justify-center bg-secondary max-w-[100svw] overflow-hidden //md:h-[100svh] //max-md:h-[80svh] `}
             >
-                    <div className="z-10 mt-32 mb-8 relative max-sm:left-[4vw] sm:left-[10vw]">
-                        <h2 className="text-primary md:text-5xl text-4xl max-sm:text-xl font-garcia">FEATURINGS</h2>
+                    <div className="z-10 max-sm:mt-16 sm:mt-40 max-sm:mb-12 sm:mb-20 relative max-sm:left-[4vw] sm:left-[10vw]">
+                        <h2 className="text-primary md:text-5xl text-4xl max-sm:text-[6vw] font-garcia">FEATURINGS</h2>
                     </div>
 
                     <Carousel></Carousel>

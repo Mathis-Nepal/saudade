@@ -73,7 +73,7 @@ const Navbar = () => {
             </div>
             <div className={`${isDrawerOpen ? "block" : "hidden"} fixed inset-0 z-50 bg-black bg-opacity-50`} onClick={closeDrawer}></div>
             <ul
-                className="fixed z-[100] top-0 w-80 bg-base-200 h-full p-4 gap-5 text-xl font-melodrama menu overflow-y-auto transition-transform duration-500 ease-in-out"
+                className="fixed z-[100] top-0 w-2/3 bg-base-200 h-full p-4 gap-5 text-xl font-melodrama menu overflow-y-auto transition-transform duration-500 ease-in-out"
                 style={{ transform: isDrawerOpen ? "translateX(0)" : "translateX(-100%)", transition: "transform 0.5s ease-in-out" }}
             >
                 <li>
