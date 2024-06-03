@@ -72,7 +72,7 @@ export default function Home() {
         <>
             <main
                 ref={main}
-                className="max-md:mt-6 relative md:h-[95svh] max-md:h-[65svh] flex items-center justify-center flex-col pt-[5svh] overflow-hidden"
+                className="max-md:mt-6 relative md:h-[95svh] max-md:h-[65svh] /max-md:h-[65vh] /max-md:h-[65dvh] flex items-center justify-center flex-col pt-[5svh] overflow-hidden"
             >
                 <Image
                     className="max-lg:hidden absolute lg:w-64 max-lg:top-[16vh] max-lg:-right-[4.5rem] lg:-right-[6.25rem] lg:top-[20vh] "

@@ -37,14 +37,14 @@ const Navbar = () => {
                     ref={nav}
                     className=" transition-colors navbar flex justify-between items-center mt-[24px] m-auto  rounded-2xl font-melodrama p-2.5 md:max-w-[80vw] max-md:max-w-[90vw]  "
                 >
-                    <div className="navbar-start w-auto">
+                    <div className="navbar-start flex-1">
                         <label onClick={toggleDrawer} className="btn btn-primary btn-ghost md:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </label>
 
-                        <Image className="max-md:hidden" src={LinkCustom({ src: "/assets/logo.png" })} alt={""} width={100} height={100}></Image>
+                        <Image className="max-md:hidden m-auto" src={LinkCustom({ src: "/assets/logo.png" })} alt={""} width={100} height={100}></Image>
                     </div>
                     <div className="navbar-center  md:flex ">
                         <ul className=" max-md:hidden menu menu-horizontal px-1 text-xl">
@@ -59,14 +59,14 @@ const Navbar = () => {
                             </li>
                         </ul>
                         <Image
-                            className="md:hidden max-vsm:hidden"
+                            className="md:hidden max-sm:hidden"
                             src={LinkCustom({ src: "/assets/logo.png" })}
                             alt={""}
                             width={100}
                             height={100}
                         ></Image>
                     </div>
-                    <div className="navbar-end w-auto">
+                    <div className="navbar-end flex-1">
                         <ButtonArrow direction={"#"} text={"écouter"}></ButtonArrow>
                     </div>
                 </motion.nav>
