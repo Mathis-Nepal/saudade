@@ -13,36 +13,29 @@ function getWidthFromHeight(height, aspectRatio) {
 
 let zIndex = {
     left: 2,
-    left1: 3,
+    left1: 2,
+    left2: 2,
+    left3: 3,
     center: 5,
-    right1: 3,
+    right4: 3,
+    right3: 1,
+    right2: 1,
+    right1: 1,
     right: 1,
 };
 const Carousel = () => {
-    const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
+    const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
     const handleNext = () => {
-        updateZindex(false);
         setPositionIndexes((prevIndexes) => {
-            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex + 1) % 5);
+            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex + 1) % 10);
             return updatedIndexes;
         });
     };
 
-    const updateZindex = ({ toBack }) => {
-        if (toBack === false) {
-            zIndex.left = 2;
-            zIndex.right = 1;
-        } else {
-            zIndex.left = 1;
-            zIndex.right = 2;
-        }
-    };
-
     const handleBack = () => {
-        updateZindex(true);
         setPositionIndexes((prevIndexes) => {
-            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex + 4) % 5);
+            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex + 9) % 10);
 
             return updatedIndexes;
         });
@@ -53,9 +46,14 @@ const Carousel = () => {
         { src: "/assets/josman.jpg", name: "Josman", ref: useRef(null) },
         { src: "/assets/tiakola.jpg", name: "TiaKola", ref: useRef(null) },
         { src: "/assets/sdm.jpg", name: "Sdm", ref: useRef(null) },
+        { src: "/assets/theodore.jpeg", name: "Théodore", ref: useRef(null) },
+        { src: "/assets/isha.jpg", name: "Isha", ref: useRef(null) },
+        { src: "/assets/josman.jpg", name: "Josman", ref: useRef(null) },
+        { src: "/assets/tiakola.jpg", name: "TiaKola", ref: useRef(null) },
+        { src: "/assets/sdm.jpg", name: "Sdm", ref: useRef(null) },
     ];
 
-    const positions = ["left", "left1", "center", "right1", "right"];
+    const positions = ["left", "left1", "left2", "left3", "center", "right4", "right3", "right2", "right1", "right"];
     const imageVariants = useResponsiveVariants();
 
     const container = useRef(null);
@@ -126,9 +124,9 @@ function useResponsiveVariants() {
             if (width < 640) {
                 setScreenType("mobile");
                 setPrincipalElementHeight(60);
-            } else if (width >= 640 && width < 1920) {
+            } else if (width >= 640 && width <= 1920) {
                 setScreenType("desktop");
-                setPrincipalElementHeight(42);
+                setPrincipalElementHeight(38);
             } else {
                 setScreenType("big_desktop");
                 setPrincipalElementHeight(29);
@@ -147,44 +145,101 @@ function useResponsiveVariants() {
     const variants = {
         desktop: {
             left: {
-                left: "-30vw",
+                left: "-45vw",
                 width: secondElementWidth,
                 height: `${secondElementHeight}vw`,
                 zIndex: zIndex.left,
                 y: "0",
                 filter: "grayscale(100%) brightness(0.7)",
+                opacity: 0,
             },
             left1: {
-                left: "-19.4vw",
+                left: "-45vw",
                 width: secondElementWidth,
                 height: `${secondElementHeight}vw`,
                 zIndex: zIndex.left1,
                 y: "0",
                 filter: "grayscale(100%) brightness(0.7)",
+                opacity: 0,
+            },
+            left2: {
+                left: "-30vw",
+                width: secondElementWidth,
+                height: `${secondElementHeight}vw`,
+                zIndex: zIndex.left2,
+                y: "0",
+                filter: "grayscale(100%) brightness(0.7)",
+                opacity: 100,
+            },
+            left3: {
+                left: "-17vw",
+                width: secondElementWidth,
+                height: `${secondElementHeight}vw`,
+                zIndex: zIndex.left3,
+                y: "0",
+                filter: "grayscale(100%) brightness(0.7)",
+                opacity: 100,
             },
             center: {
                 left: "10vw",
                 width: principalElementWidth,
                 height: `${princpalElementHeight}vw`,
                 zIndex: zIndex.center,
-                y: "-4.5vw",
+                y: "-4.2vw",
                 filter: "grayscale(0%) brightness(1)",
             },
+            right4: {
+                left: "51vw",
+                width: secondElementWidth,
+                height: `${secondElementHeight}vw`,
+                zIndex: zIndex.right4,
+                y: "0",
+                filter: "grayscale(100%) brightness(0.7)",
+            },
+            right3: {
+                left: "77.8vw",
+                width: secondElementWidth,
+                height: `${secondElementHeight}vw`,
+                zIndex: zIndex.right3,
+                y: "0",
+                filter: "grayscale(100%) brightness(0.7)",
+                opacity: 100,
+            },
+            right2: {
+                left: "110vw",
+                width: secondElementWidth,
+                height: `${secondElementHeight}vw`,
+                zIndex: zIndex.right2,
+                y: "0",
+                filter: "grayscale(100%) brightness(0.7)",
+                opacity: 0,
+            },
             right1: {
-                left: "55vw",
+                left: "110vw",
                 width: secondElementWidth,
                 height: `${secondElementHeight}vw`,
                 zIndex: zIndex.right1,
                 y: "0",
                 filter: "grayscale(100%) brightness(0.7)",
+                opacity: 0,
             },
             right: {
-                left: "84.4vw",
+                left: "110vw",
                 width: secondElementWidth,
                 height: `${secondElementHeight}vw`,
                 zIndex: zIndex.right,
                 y: "0",
                 filter: "grayscale(100%) brightness(0.7)",
+                opacity: 0,
+            },
+            right: {
+                left: "110vw",
+                width: secondElementWidth,
+                height: `${secondElementHeight}vw`,
+                zIndex: zIndex.right,
+                y: "0",
+                filter: "grayscale(100%) brightness(0.7)",
+                opacity: 0,
             },
         },
         big_desktop: {
@@ -203,6 +258,7 @@ function useResponsiveVariants() {
                 zIndex: zIndex.left1,
                 y: "0",
                 filter: "grayscale(100%) brightness(0.7)",
+                display: "hidden",
             },
             center: {
                 left: "10vw",
