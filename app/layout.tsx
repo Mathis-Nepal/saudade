@@ -22,7 +22,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
-            <link rel="icon" href={LinkCustom({src : "assets/favicon.ico"})} />
+            <link rel="icon" href={LinkCustom({src : "/assets/favicon.ico"})} />
             </head>
             <Font></Font>
             <body className={inter.className}>
