@@ -5,6 +5,7 @@ import Navbar from "../components/navbar";
 import { Font } from "../components/components";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { LinkCustom } from "../components/components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+            <link rel="icon" href={LinkCustom({src : "assets/favicon.ico"})} />
+            </head>
             <Font></Font>
             <body className={inter.className}>
                 {/* <Suspense fallback={<Loading/>}> */}
