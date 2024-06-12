@@ -213,7 +213,6 @@ export default function Home() {
                         width={"100%"}
                         height="100%"
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"
                     ></iframe>
                     <div className="md:w-56 flex-col bg-secondary/50 justify-center items-center block rounded-xl md:p-5 max-md:pt-4 backdrop-blur-xl border-2 border-[#5E5E5E]/30">
                         <p className="text-xl text-center font-melodrama text-primary ">Ecouter plus sur</p>
