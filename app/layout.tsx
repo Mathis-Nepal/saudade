@@ -6,7 +6,6 @@ import { Font } from "../components/components";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { LinkCustom } from "../components/components";
-import config from "../next.config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,14 +24,14 @@ export default function RootLayout({
             <head>
             <link
             rel="preload"
-            href={`${config.basePath}/fonts/Melodrama-Variable.woff2`}
+            href={LinkCustom({src : "/fonts/Melodrama-Variable.woff2"})}
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href={`${config.basePath}/fonts/GarciaMarquez.otf`}
+            href={LinkCustom({src : "/fonts/GarciaMarquez.otf"})}
             as="font"
             type="font/opentype"
             crossOrigin="anonymous"
