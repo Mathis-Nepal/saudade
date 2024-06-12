@@ -38,7 +38,7 @@ const Navbar = () => {
                     ref={nav}
                     className=" transition-colors navbar flex justify-between items-center mt-[24px] m-auto  rounded-2xl font-melodrama p-2.5 md:max-w-[80vw] max-md:max-w-[90vw]"
                 >
-                    <div className="navbar-start flex-1">
+                    <div className="navbar-start w-1/3 flex-1">
                         <label onClick={toggleDrawer} className="btn btn-primary btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
@@ -47,7 +47,7 @@ const Navbar = () => {
 
                         <Image className="max-lg:hidden" src={LinkCustom({ src: "/assets/logo.png" })} alt={""} width={100} height={100}></Image>
                     </div>
-                    <div className="navbar-center  lg:flex ">
+                    <div className="navbar-center max-md:w-1/3  flex justify-center ">
                         <ul className=" max-lg:hidden menu menu-horizontal gap-[4vw] px-1 text-xl">
                             <li>
                                 <a href="#cover">COVER</a>
@@ -67,7 +67,7 @@ const Navbar = () => {
                             height={100}
                         ></Image>
                     </div>
-                    <div className="navbar-end flex-1">
+                    <div className="navbar-end w-1/3 flex-1">
                         <ButtonArrow direction={"https://open.spotify.com/intl-fr/track/501KhX3hwC7G6XHXZeBKYU?si=80d3f42090f041dd"} text={"écouter"}></ButtonArrow>
                     </div>
                 </motion.nav>
