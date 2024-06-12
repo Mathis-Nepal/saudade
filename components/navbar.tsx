@@ -32,6 +32,7 @@ const Navbar = () => {
                     style={{
                         border: border,
                         backdropFilter: filter,
+                        WebkitBackdropFilter: filter,
                         backgroundColor: background,
                     }}
                     ref={nav}
