@@ -54,15 +54,16 @@ const Carousel = () => {
 
     const handleNext = () => {
         setPositionIndexes((prevIndexes) => {
-            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex + 1) % 10);
+            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex + 9) % 10);
+
             return updatedIndexes;
         });
+        
     };
 
     const handleBack = () => {
         setPositionIndexes((prevIndexes) => {
-            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex + 9) % 10);
-
+            const updatedIndexes = prevIndexes.map((prevIndex) => (prevIndex + 1) % 10);
             return updatedIndexes;
         });
     };
