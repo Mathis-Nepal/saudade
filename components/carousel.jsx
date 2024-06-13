@@ -274,7 +274,7 @@ useEffect(() => {
             },
             right2: {
                 top:0,
-                left: "110vw",
+                left: "100vw",
                 width: secondElementWidth,
                 height: secondElementHeight,
                 zIndex: zIndex.right2,
@@ -404,7 +404,7 @@ useEffect(() => {
             },
             right1: {
                 top:0,
-                left: "115vw",
+                left: "103vw",
                 width: secondElementWidth,
                 height: secondElementHeight,
                 zIndex: zIndex.right,
