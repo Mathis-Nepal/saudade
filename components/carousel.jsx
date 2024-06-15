@@ -14,6 +14,11 @@ function getWidthFromHeight(height, aspectRatio) {
 	return height / aspectRatio;
 }
 
+//  const isInView = useInView(image.refImg, { amount: amount, once: true });
+function IsInView(ref, amount) {
+	useInView(ref, { amount: amount, once: true });
+}
+
 let zIndex = {
 	left: 2,
 	left1: 2,
@@ -68,16 +73,6 @@ const Carousel = () => {
 		});
 	};
 	const images = [
-		// { src: "/assets/theodore.jpeg", name: "1", ref: useRef(null), refImg: useRef(null) },
-		// { src: "/assets/isha.jpg", name: "1.2", ref: useRef(null), refImg: useRef(null) },
-		// { src: "/assets/josman.jpg", name: "2", ref: useRef(null), refImg: useRef(null) },
-		// { src: "/assets/tiakola.jpg", name: "3", ref: useRef(null), refImg: useRef(null) },
-		// { src: "/assets/sdm.jpg", name: "4", ref: useRef(null), refImg: useRef(null) },
-		// { src: "/assets/theodore.jpeg", name: "5", ref: useRef(null), refImg: useRef(null) },
-		// { src: "/assets/isha.jpg", name: "6", ref: useRef(null), refImg: useRef(null) },
-		// { src: "/assets/josman.jpg", name: "7", ref: useRef(null), refImg: useRef(null) },
-		// { src: "/assets/tiakola.jpg", name: "8", ref: useRef(null), refImg: useRef(null) },
-		// { src: "/assets/sdm.jpg", name: "9", ref: useRef(null), refImg: useRef(null) },
 		{ src: "/assets/theodore.jpeg", name: "Théodore", ref: useRef(null), refImg: useRef(null) },
 		{ src: "/assets/isha.jpg", name: "Isha", ref: useRef(null), refImg: useRef(null) },
 		{ src: "/assets/josman.jpg", name: "Josman", ref: useRef(null), refImg: useRef(null) },
@@ -94,6 +89,7 @@ const Carousel = () => {
 	const imageVariants = useResponsiveVariants();
 
 	const container = useRef(null);
+	
 
 	return (
 		<>
@@ -149,7 +145,7 @@ const Carousel = () => {
 						delay = 1.5;
 					}
 
-					const isInView = useInView(image.refImg, { amount: amount, once: true });
+					// const isInView = useInView(image.refImg, { amount: amount, once: true });
 
 					return (
 						<motion.div
@@ -168,7 +164,7 @@ const Carousel = () => {
 							(index === 7 && isLarge) ? (
 								<motion.div
 									style={{
-										height: isInView ? "0%" : "100%",
+										height: IsInView(image.ref, amount) ? "0%" : "100%",
 										transition: `all ${duration}s cubic-bezier(0.17, 0.55, 0.55, 1) ${delay}s`,
 										backgroundColor: "rgba(37, 37, 37)",
 									}}
@@ -177,7 +173,7 @@ const Carousel = () => {
 									<motion.h2
 										// animate={{ opacity: isInView ? 0 : 0.5 }}
 										style={{
-											opacity: isInView ? "0%" : "100%",
+											opacity: IsInView(image.ref, amount) ? "0%" : "100%",
 											transition: `all ${delay}s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s`,
 										}}
 										className=" text-primary md:text-5xl text-4xl max-sm:text-[6vw] font-garcia"

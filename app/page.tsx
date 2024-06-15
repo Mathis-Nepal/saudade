@@ -92,7 +92,7 @@ export default function Home() {
 		return () => {
 			tl.kill();
 		};
-	}, [imgCover]);
+	}, [imgCover, refs.part3_h3]);
 
 	const vinyle = useRef(null);
 	const { scrollYProgress } = useScroll({
