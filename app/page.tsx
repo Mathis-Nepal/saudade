@@ -67,7 +67,7 @@ export default function Home() {
 				index * (duration - overlap) // applique le décalage
 			);
 		});
-	}, [refs]);
+	});
 
 	useEffect(() => {
 		if (window.innerWidth < 768) {
