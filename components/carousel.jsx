@@ -15,9 +15,9 @@ function getWidthFromHeight(height, aspectRatio) {
 }
 
 //  const isInView = useInView(image.refImg, { amount: amount, once: true });
-function IsInView(ref, amount) {
-	useInView(ref, { amount: amount, once: true });
-}
+// function IsInView(ref, amount) {
+// 	useInView(ref, { amount: amount, once: true });
+// }
 
 let zIndex = {
 	left: 2,
@@ -147,6 +147,8 @@ const Carousel = () => {
 
 					// const isInView = useInView(image.refImg, { amount: amount, once: true });
 
+					const isInView = useInView(image.refImg, { amount: amount, once: true });
+
 					return (
 						<motion.div
 							initial="center"
@@ -164,16 +166,15 @@ const Carousel = () => {
 							(index === 7 && isLarge) ? (
 								<motion.div
 									style={{
-										height: IsInView(image.ref, amount) ? "0%" : "100%",
+										height: isInView ? "0%" : "100%",
 										transition: `all ${duration}s cubic-bezier(0.17, 0.55, 0.55, 1) ${delay}s`,
 										backgroundColor: "rgba(37, 37, 37)",
 									}}
 									className="opacity-100 w-full box-border absolute bottom-0 flex items-center justify-center"
 								>
 									<motion.h2
-										// animate={{ opacity: isInView ? 0 : 0.5 }}
 										style={{
-											opacity: IsInView(image.ref, amount) ? "0%" : "100%",
+											opacity: isInView ? "0%" : "100%",
 											transition: `all ${delay}s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s`,
 										}}
 										className=" text-primary md:text-5xl text-4xl max-sm:text-[6vw] font-garcia"
