@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, use } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { LinkCustom } from "./components";
 import { once } from "events";
+import useImageInView from "./use_image_in_view";
 
 const secondElementRatio = 530 / 457;
 const principalElementRatio = 680 / 710;
@@ -13,11 +14,6 @@ const immmgComponent = ({ image, index }) => {};
 function getWidthFromHeight(height, aspectRatio) {
 	return height / aspectRatio;
 }
-
-//  const isInView = useInView(image.refImg, { amount: amount, once: true });
-// function IsInView(ref, amount) {
-// 	useInView(ref, { amount: amount, once: true });
-// }
 
 let zIndex = {
 	left: 2,
@@ -31,6 +27,7 @@ let zIndex = {
 	right1: 1,
 	right: 1,
 };
+
 const Carousel = () => {
 	const [screenSize, setScreenSize] = useState(null);
 
@@ -87,9 +84,24 @@ const Carousel = () => {
 
 	const positions = ["left", "left1", "left2", "left3", "center", "right4", "right3", "right2", "right1", "right"];
 	const imageVariants = useResponsiveVariants();
-
 	const container = useRef(null);
-	
+
+	let isDesktop = screenSize === "desktop";
+	let isLarge = screenSize === "large";
+	let isDesktopOrLarge = isDesktop || isLarge;
+
+	const arrayImageInView = [
+		useInView(images[0].refImg, { amount: 0.16, once: true }),
+		useInView(images[1].refImg, { amount: 0.16, once: true }),
+		useInView(images[2].refImg, { amount: 0.16, once: true }),
+		useInView(images[3].refImg, { amount: 0.16, once: true }),
+		useInView(images[4].refImg, { amount: 0.6, once: true }),
+		useInView(images[5].refImg, { amount: isDesktopOrLarge ? 0.5 : 0.35, once: true }),
+		useInView(images[6].refImg, { amount: 0.5, once: true }),
+		useInView(images[7].refImg, { amount: 0.5, once: true }),
+		useInView(images[8].refImg, { amount: 0.5, once: true }),
+		useInView(images[9].refImg, { amount: 0.5, once: true }),
+	];
 
 	return (
 		<>
@@ -118,36 +130,22 @@ const Carousel = () => {
 				className={`max-sm:h-[65vw] sm:h-[40vw] max-md:mb-[8rem] md:mb-[12rem] relative left-0 right-0 bottom-0 w-full flex items-center flex-col-reverse flex-1 justify-center`}
 			>
 				{images.map((image, index) => {
-					let isDesktop = screenSize === "desktop";
-					let isLarge = screenSize === "large";
-
-					let isDesktopOrLarge = screenSize === "desktop" || screenSize === "large";
-					let isMobile = screenSize === "mobile";
-
-					let amount = 0;
 					let delay = 0;
 					let duration = 0.9;
 
 					if (index === 3 && isDesktopOrLarge) {
-						amount = 0.16;
 						delay = 0.3;
 					} else if (index === 4) {
-						amount = 0.6;
 						delay = isDesktopOrLarge ? 0.6 : 0.3;
 					} else if (index === 5) {
-						amount = isDesktopOrLarge ? 0.5 : 0.35;
 						delay = isDesktopOrLarge ? 0.9 : 0.6;
 					} else if (index === 6 && isDesktopOrLarge) {
-						amount = 0.5;
 						delay = 1.2;
-					} else if (index === 7 && screenSize === "large") {
-						amount = 0.5;
+					} else if (index === 7 && isLarge) {
 						delay = 1.5;
 					}
 
-					// const isInView = useInView(image.refImg, { amount: amount, once: true });
-
-					const isInView = useInView(image.refImg, { amount: amount, once: true });
+					const isInView = arrayImageInView[index];
 
 					return (
 						<motion.div
