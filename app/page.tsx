@@ -49,7 +49,7 @@ export default function Home() {
 
 		Object.entries(refs).forEach(([key, ref], index) => {
 			const isCover = key.includes("cover");
-			const duration = 0.3;
+			const duration = 0.4;
 
 			if (window.innerWidth > 768 && isCover) {
 				return;
